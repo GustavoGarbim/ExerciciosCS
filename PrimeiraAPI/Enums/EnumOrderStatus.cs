@@ -1,0 +1,13 @@
+﻿namespace PrimeiraAPI.Enums
+{
+    internal class EnumOrderStatus
+    {
+        enum OrderStatus
+        {
+            PENDING_PAYMENT = 0,
+            PROCESSING = 1,
+            SHIPPED = 2,
+            DELIVERED = 3
+        }
+    }
+}
