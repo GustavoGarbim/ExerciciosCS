@@ -1,4 +1,4 @@
-﻿using System.Xml.Linq;
+﻿using System.Globalization;
 
 namespace Course10
 {
@@ -7,7 +7,6 @@ namespace Course10
         static void Main(string[] args)
         {
             // Throw away that weight, often it's not even yours
-
             List<TaxPayerClass> list = new List<TaxPayerClass>();
 
             Console.Write("Enter the number of tax payers: ");
@@ -51,12 +50,16 @@ namespace Course10
                     Console.WriteLine("Invalid option, taking off my stuff's");
                 }
             }
+            double sum = 0.0;
             Console.WriteLine("TAXES PAID:");
             foreach (TaxPayerClass tp in list)
             {
                 double impostoCalculado = tp.Tax();
                 Console.WriteLine($"{tp.Name}: $ {impostoCalculado.ToString("F2")}");
+                sum += impostoCalculado;
             }
+
+            Console.WriteLine("TOTAL TAXES: $ " + sum.ToString("F2", CultureInfo.InvariantCulture));
         }
     }
 }
